@@ -16,10 +16,9 @@ import chromedriver_binary
 import settings
 
 # 本番用トークンID
-line_notify_token = '6OuCFCl0wNijvOvyOvzDY6D96BUYHEVOjsYQMF4rHUn'
+line_notify_token = settings.LINE_TOKEN
 # LINE Notify APIのURL
-line_notify_api = 'https://notify-api.line.me/api/notify'
-
+line_notify_api = settings.LINE_API
 ID = settings.ID
 PASSWORD = settings.PWD
 
@@ -96,18 +95,6 @@ class JobCan:
             member_text+=(f'{member_list.find_all("td")[0].text} :{member_list.find_all("td")[1].text}') +"\n"
             # print(f'@{member_list.find_all("td")[0].text}')
             # print(f'出勤時間:{member_list.find_all("td")[1].text}')
-
-        # WEB_HOOK_URLは下準備で発行したURLを設定しください
-        # WEB_HOOK_URL = "https://hooks.slack.com/services/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"
-
-        # requests.post(WEB_HOOK_URL, data=json.dumps({
-        #     # メッセージ内容
-        #     "text" : member_text,
-        #     # アイコン
-        #     "icon_emoji" : ":dog:",
-        #     # 投稿者名
-        #     "username" : "シフトメンバーお知らせ"
-        # }))
 
         message = member_text
         payload = {'message': message}
