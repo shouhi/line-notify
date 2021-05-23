@@ -70,7 +70,7 @@ class JobCan:
 
         day = self.driver.find_element_by_xpath("/html/body/div[3]/div[2]/div/div/div/div/div/div/div[2]/div/form/table[1]/tbody/tr[6]/td/div[2]/select[3]")
         selectday = Select(day)
-        currentday = datetime.datetime.now()
+        currentday = datetime.datetime.now().strftime('%-d')
         selectday.select_by_value(currentday)
 
         #表示ボタンクリック
